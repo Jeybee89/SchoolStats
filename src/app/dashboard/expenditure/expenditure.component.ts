@@ -1,25 +1,21 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {SchooldataService} from "../services/schooldata.service";
+import {Component, OnInit} from '@angular/core';
+import {SchooldataService} from "../../services/schooldata.service";
 import {Chart} from "chart.js"
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-expenditure',
+  templateUrl: './expenditure.component.html',
+  styleUrls: ['./expenditure.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class ExpenditureComponent implements OnInit {
 
-
-  schools: any;
+  public schools: any;
   public grafName = [];
   public grafValue = [];
   chart = [];
 
-
   constructor(private schoolService: SchooldataService) {
-
   }
-
 
   ngOnInit() {
     this.schoolService.getSchool().subscribe(async school => {
@@ -27,9 +23,9 @@ export class DashboardComponent implements OnInit {
       this.schoolService.setSchoolData(school);
       this.schools.forEach((value, i) => {
         let school = this.schools[i].SchoolName;
-        let schoolIncome = Number(this.schools[i].TotalIncome.replace(/\,/g, ''));
+        let schoolExp = Number(this.schools[i].TotalExpenditure.replace(/\,/g, ''));
         this.grafName.push(school);
-        this.grafValue.push(schoolIncome);
+        this.grafValue.push(schoolExp);
 
       });
       this.chart = new Chart('canvas', {
@@ -37,10 +33,10 @@ export class DashboardComponent implements OnInit {
         data: {
           labels: this.grafName,
           datasets: [{
-            label: 'Total Income',
+            label: 'Total Expenditure',
             data: this.grafValue,
             backgroundColor:
-              'rgba(0, 153, 51, 0.8)'
+              'rgba(255, 0, 0, 0.8)'
             ,
             borderWidth: 0
           }]
@@ -61,11 +57,6 @@ export class DashboardComponent implements OnInit {
 
 
     });
-
   }
 
-
 }
-
-
-

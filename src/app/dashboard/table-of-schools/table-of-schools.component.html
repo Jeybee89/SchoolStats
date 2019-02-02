@@ -1,15 +1,31 @@
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> School Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.SchoolName}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <table class="table table-responsive">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">School Name</th>
+      <th scope="col">Establishment Type</th>
+      <th scope="col">Phase Of Education</th>
+      <th scope="col">Region</th>
+      <th scope="col">Number Of Pupils</th>
+      <th scope="col">Total Income</th>
+      <th scope="col">Total Expenditure</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let school of schoolData; let i = index">
+      <th scope="row">{{ i }}</th>
+      <td>{{school.SchoolName}}</td>
+      <td>{{ school.EstablishmentType }}</td>
+      <td>{{ school.PhaseOfEducation }}</td>
+      <td>{{ school.Region }}</td>
+      <td>{{ school.NumberOfPupils }}</td>
+      <td>{{ school.TotalIncome }}</td>
+      <td>{{ school.TotalExpenditure }}</td>
+      <td><button class="btn btn-secondary"  routerLink="/detail/{{school.URN}}">More</button></td>
+    </tr>
+  </tbody>
 </table>
 
 
-
-<pre></pre>

@@ -1,8 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from "@angular/material";
+import {Component, OnInit} from '@angular/core';
 import {SchooldataService} from "../../services/schooldata.service";
-import {School} from "../../model/school";
-import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-table-of-schools',
@@ -15,10 +13,6 @@ export class TableOfSchoolsComponent implements OnInit {
   schoolData: any;
 
 
-  @ViewChild(MatSort) sort: MatSort;
-
-  displayedColumns: string[] = ['name'];
-  dataSource = new MatTableDataSource();
 
   constructor(private schoolService: SchooldataService) {
 
@@ -26,11 +20,10 @@ export class TableOfSchoolsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.schoolService.getSchool().subscribe(res => {
-      this.dataSource.data = new Array(res);
-      console.log(this.dataSource.data);
+    this.schoolService.getSchool().subscribe(async school => {
+      this.schoolData = school;
+    this.schoolService.setSchoolData(school);
     });
-    this.dataSource.sort = this.sort;
   }
 
 
