@@ -15,7 +15,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let school of schoolData; let i = index">
-      <th scope="row">{{ i }}</th>
+      <th scope="row">{{ i + 1 }}</th>
       <td>{{school.SchoolName}}</td>
       <td>{{ school.EstablishmentType }}</td>
       <td>{{ school.PhaseOfEducation }}</td>
@@ -23,7 +23,7 @@
       <td>{{ school.NumberOfPupils }}</td>
       <td>{{ school.TotalIncome }}</td>
       <td>{{ school.TotalExpenditure }}</td>
-      <td><button class="btn btn-secondary"  routerLink="/detail/{{school.URN}}">More</button></td>
+      <td><button class="btn btn-secondary"  (click)="getDetail(school.URN)" >More</button></td>
     </tr>
   </tbody>
 </table>

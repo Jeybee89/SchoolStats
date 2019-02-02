@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SchooldataService} from "../../services/schooldata.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class TableOfSchoolsComponent implements OnInit {
 
 
 
-  constructor(private schoolService: SchooldataService) {
+  constructor(private schoolService: SchooldataService, private router: Router) {
 
 
   }
@@ -24,6 +25,10 @@ export class TableOfSchoolsComponent implements OnInit {
       this.schoolData = school;
     this.schoolService.setSchoolData(school);
     });
+  }
+
+  getDetail(id) {
+    this.router.navigate(['detail', id]);
   }
 
 
