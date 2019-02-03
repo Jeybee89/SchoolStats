@@ -1,5 +1,263 @@
+<div class="container">
 
-  <div *ngFor="let sch of school">
-    <p>{{ sch.SchoolName }}</p>
-  </div>
+  <ng-container *ngFor="let sch of school">
+    <div class="card shadow mt-4">
+      <div class="card-header">
+        {{ sch.SchoolName }}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Region:</p>
+              <p>{{ sch.Region }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">LA Name:</p>
+              <p>{{ sch.LAName }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Establishment Type:</p>
+              <p>{{ sch.EstablishmentType }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Overall Phase:</p>
+              <p>{{ sch.OverallPhase }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Phase Of Education:</p>
+              <p>{{ sch.PhaseOfEducation }}</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Number Of Pupils:</p>
+              <p>{{ sch.NumberOfPupils }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Pupils Eligible For FSM:</p>
+              <p>{{ sch.pupilsEligibleForFSM }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">FSM Band:</p>
+              <p>{{ sch.FSMBand }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">School Statutory High Age:</p>
+              <p>{{ sch.SchoolStatutoryHighAge }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">School Statutory Low Age:</p>
+              <p>{{ sch.SchoolStatutoryLowAge }}</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Rate:</p>
+              <p>{{ sch.Rates }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">School DfE Number:</p>
+              <p>{{ sch.SchoolDfENumber }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Established Code:</p>
+              <p>{{ sch.EstabCode }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Catering Staff:</p>
+              <p>{{ sch.CateringStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">LA Code:</p>
+              <p>{{ sch.LACode }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-4">
+      <div class="col-12 col-md-6">
+        <div class="card shadow">
+          <div class="card-header text-white bg-success">
+            <h5>Income</h5>
+          </div>
+          <div class="card-img-top">
+            <div *ngIf="doughnutChartData" style="display: block">
+              <canvas baseChart height="300vh"
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"></canvas>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">SEN Funding:</p>
+              <p>{{ sch.SENFunding }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Additional Grant For Schools:</p>
+              <p>{{ sch.AdditionalGrantForSchools }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Community Focused School Facilities Income:</p>
+              <p>{{ sch.CommunityFocusedSchoolFacilitiesIncome }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Community Focussed School Funding And/Or Grants:</p>
+              <p>{{ sch.CommunityFocussedSchoolFundingAndOrGrants }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Direct Revenue Financing:</p>
+              <p>{{ sch.DirectRevenueFinancing }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Donations And/Or Private Funds:</p>
+              <p>{{ sch.DonationsAndOrPrivateFunds }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Funding For 6th Form Students:</p>
+              <p>{{ sch.FundingFor6thFormStudents }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Funding For Minorit Ethnic Pupils:</p>
+              <p>{{ sch.FundingForMinoritEthnicPupils }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Funds Delegated By The LA:</p>
+              <p>{{ sch.FundsDelegatedByTheLA }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Income From Catering:</p>
+              <p>{{ sch.IncomeFromCatering }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Income From Contributions To Visits:</p>
+              <p>{{ sch.IncomeFromContributionsToVisits }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Other Government Grants:</p>
+              <p>{{ sch.OtherGovernmentGrants }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Other Grants And Payments:</p>
+              <p>{{ sch.OtherGrantsAndPayments }}</p>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Total Income:</p>
+              <p>{{ sch.TotalIncome }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="card shadow">
+          <div class="card-header text-white bg-danger">
+            <h5>Expenditure</h5>
+          </div>
+          <div class="card-img-top">
+
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Administrative And Clerical Staff:</p>
+              <p>{{ sch.AdministrativeAndClericalStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Administrative Supplies:</p>
+              <p>{{ sch.AdministrativeSupplies }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Bought In Professional Services:</p>
+              <p>{{ sch.BoughtInProfessionalServices }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Bought In Professional Services 2:</p>
+              <p>{{ sch.BoughtInProfessionalServices2 }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Catering Supplies:</p>
+              <p>{{ sch.CateringSupplies }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Cleaning And Caretaking:</p>
+              <p>{{ sch.CleaningAndCaretaking }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Community Focused School Costs:</p>
+              <p>{{ sch.CommunityFocusedSchoolCosts }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Community Focused School Staff:</p>
+              <p>{{ sch.CommunityFocusedSchoolStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Cost Of Other Staff:</p>
+              <p>{{ sch.CostOfOtherStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Development And Training:</p>
+              <p>{{ sch.DevelopmentAndTraining }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Education Support Staff:</p>
+              <p>{{ sch.EducationSupportStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Energy:</p>
+              <p>{{ sch.Energy }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Grounds Maintenance And Improvement:</p>
+              <p>{{ sch.GroundsMaintenanceAndImprovement }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">ICT Learning Resources:</p>
+              <p>{{ sch.ICTLearningResources }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Indirect Employee Expenses:</p>
+              <p>{{ sch.IndirectEmployeeExpenses }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Learning Resources:</p>
+              <p>{{ sch.LearningResources }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Premises Staff:</p>
+              <p>{{ sch.PremisesStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Staff Related Insurance:</p>
+              <p>{{ sch.StaffERelatedInsurance }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Supply Teaching Staff:</p>
+              <p>{{ sch.SupplyTeachingStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Teaching Staff:</p>
+              <p>{{ sch.TeachingStaff }}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Water And Sewerage:</p>
+              <p>{{ sch.WaterAndSewerage }}</p>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <p class="font-weight-bold">Total Expenditure:</p>
+              <p>{{ sch.TotalExpenditure }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+</div>
+
+
+
 

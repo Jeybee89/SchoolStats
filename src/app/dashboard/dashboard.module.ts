@@ -8,6 +8,7 @@ import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/mate
 import { ExpenditureComponent } from './expenditure/expenditure.component';
 import {RouterModule, Routes} from "@angular/router";
 import { DetailComponent } from './detail/detail.component';
+import {ChartsModule} from "ng2-charts";
 
 const routes: Routes = [
   {path: 'expenditure', component: ExpenditureComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
     MatPaginatorModule,
     MatSortModule,
     RouterModule.forRoot(routes),
+    ChartsModule
 
   ],
   providers: [SchooldataService],
