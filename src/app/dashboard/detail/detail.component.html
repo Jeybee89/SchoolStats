@@ -7,7 +7,7 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-12 col-md-4">
+          <div class="col-12 col-md-6 col-lg-4">
             <div class="d-flex justify-content-between">
               <p class="font-weight-bold">Region:</p>
               <p>{{ sch.Region }}</p>
@@ -29,7 +29,7 @@
               <p>{{ sch.PhaseOfEducation }}</p>
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col-12 col-md-6 col-lg-4">
             <div class="d-flex justify-content-between">
               <p class="font-weight-bold">Number Of Pupils:</p>
               <p>{{ sch.NumberOfPupils }}</p>
@@ -51,7 +51,7 @@
               <p>{{ sch.SchoolStatutoryLowAge }}</p>
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col-12 col-md-6 col-lg-4">
             <div class="d-flex justify-content-between">
               <p class="font-weight-bold">Rate:</p>
               <p>{{ sch.Rates }}</p>
@@ -77,14 +77,14 @@
       </div>
     </div>
     <div class="row my-4">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-12 col-lg-6">
         <div class="card shadow">
           <div class="card-header text-white bg-success">
             <h5>Income</h5>
           </div>
           <div class="card-img-top">
             <div *ngIf="doughnutChartData" style="display: block">
-              <canvas baseChart height="300vh"
+              <canvas baseChart height="350vh"
                 [data]="doughnutChartData"
                 [labels]="doughnutChartLabels"
                 [chartType]="doughnutChartType"></canvas>
@@ -152,14 +152,19 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-12 col-lg-6">
         <div class="card shadow">
           <div class="card-header text-white bg-danger">
             <h5>Expenditure</h5>
           </div>
-          <div class="card-img-top">
-
-          </div>
+           <div class="card-img-top">
+            <div *ngIf="doughnutChartDataEx" style="display: block">
+              <canvas baseChart height="350vh"
+                [data]="doughnutChartDataEx"
+                [labels]="douhnutChartLebelsEx"
+                [chartType]="doughnutChartTypeEx"></canvas>
+            </div>
+           </div>
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <p class="font-weight-bold">Administrative And Clerical Staff:</p>
@@ -256,7 +261,15 @@
 
     </div>
   </ng-container>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-outline-primary mb-4" routerLink="/dashboard">Back to results</button>
+
+  </div>
 </div>
+<footer class="bg-dark text-white py-4 text-center">
+  <p class="mb-0">Created by Nikolas Nelson 2019</p>
+
+</footer>
 
 
 

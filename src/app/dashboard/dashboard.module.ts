@@ -9,12 +9,17 @@ import { ExpenditureComponent } from './expenditure/expenditure.component';
 import {RouterModule, Routes} from "@angular/router";
 import { DetailComponent } from './detail/detail.component';
 import {ChartsModule} from "ng2-charts";
+import { NotFoundComponent } from './not-found/not-found.component';
+import { IncomeComponent } from './income/income.component';
 
 const routes: Routes = [
   {path: 'expenditure', component: ExpenditureComponent},
   {path: 'dashboard', component: TableOfSchoolsComponent},
-  {path: 'income', component:DashboardComponent},
-  {path: 'detail/:id', component: DetailComponent}
+  {path: 'income', component:IncomeComponent},
+  {path: 'detail/:id', component: DetailComponent},
+  { path: '',   component: DashboardComponent },
+  { path: '**', component: NotFoundComponent  },
+
 ];
 
 @NgModule({
@@ -23,6 +28,8 @@ const routes: Routes = [
     TableOfSchoolsComponent,
     ExpenditureComponent,
     DetailComponent,
+    NotFoundComponent,
+    IncomeComponent,
   ],
 
   exports: [
@@ -30,7 +37,8 @@ const routes: Routes = [
     TableOfSchoolsComponent,
     ExpenditureComponent,
     DetailComponent,
-
+    NotFoundComponent,
+    IncomeComponent
   ],
 
   imports: [
