@@ -1,27 +1,68 @@
-# FrontEnd
+# School Statistics (https://schooldata.nickwebdev.com)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+This project/website was made for displaying information about schools in UK/London which you can find on GOV websites in an Excel sheet.
 
-## Development server
+Purpose of the web site is to display in better way information from public sources in graphs and tables. Viewers can easily navigate thought the website end compare schools in regions. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+_This project was created as simple as possible on teh course recommendation and to show underspending of learned knowledge in the course module._ 
 
-## Code scaffolding
+## Design
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Design was created in Adobe XD the exported pdf you can find in the design folder in the project. Design is simple and more focused on data than modern design. 
 
-## Build
+## Technology 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+For this project was used Angular 6 for better folder structure and Api connection to end points. 
+Flask for backend, connection to MySQL DB and REST API.
+Bootstrap 4 used to make website responsive across different screens  and speed up styling. 
+Material Design for some styling.
+Font Awesome for icons.
+SASS for better organisation of css.
+Ng Charts for for data visualisation. 
 
-## Running unit tests
+## Deployment 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Project was deployed on my Linode server running on Ubuntu 14 using Nginx and Cerbot for SSL. To run Flack I’m using nohup and is is connected to MySQL DB running on the same server. 
 
-## Running end-to-end tests
+## Features 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Visitors can see data in tables and graphs also all in once or detailed. Website displays general and financial information. 
 
-## Further help
+### Features Left to Implement
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+DB contain just 100 schools for now but there is opportunity to import all accessible data from GOV website. And then implement searching and sorting feature for better and faster access to data what visitors looking for.
+ 
+
+## Testing 
+
+The project was tested in chrome dev tools, in angular cli and AB testing on website. Also was manual testing though the website. Tested on Google Chrome and Safari and screens from 360px to 2680px. 
+
+I had 2 big issue one was reloading page and get 404 because angular is single page application and on reload it loosing informations about page. I was fixed in Nginx configuration to look for index page. 
+
+And second issue was running flask and angular on HTTPS to be able connect to each other without CORS policy blocking. It was fixed by WSGI configuration on server and adding SSL certificates to Flask.  
+
+## How to run:
+
+1. Clone project to your computer.
+2. Run `npm install` to install npm packages 
+3. Run `pip install flask-mysql`
+4. Run `pip install cors`
+5. Run `python mysql.py` (mysql-prod.py is with SSL for running on server with SSL certificate)
+6. Run `ng start`
+7. Open browser with http://localhost:4200/ 
+
+And you should see the webpage. 
+
+## Credits
+
+Angular documentation 
+
+Flask documentations 
+
+Bootstrap documentation 
+
+Stack overflow
+
+Linode documentation/forum 
+
+[GOV School data](https://www.compare-school-performance.service.gov.uk)
