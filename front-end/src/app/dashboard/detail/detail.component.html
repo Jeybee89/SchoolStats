@@ -1,7 +1,13 @@
 <div class="container">
 
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-outline-primary my-2" routerLink="/dashboard">Back to results</button>
+
+  </div>
+
+<!-- SCHOOL DETAILS -->
   <ng-container *ngFor="let sch of school">
-    <div class="card shadow mt-4">
+    <div class="card shadow">
       <div class="card-header">
         {{ sch.SchoolName }}
       </div>
@@ -76,6 +82,7 @@
         </div>
       </div>
     </div>
+<!--  INCOME SECTION  -->
     <div class="row my-4">
       <div class="col-12 col-md-12 col-lg-6">
         <div class="card shadow">
@@ -152,6 +159,7 @@
         </div>
       </div>
 
+<!--   EXPENDITURE SECTION   -->
       <div class="col-12 col-md-12 col-lg-6">
         <div class="card shadow">
           <div class="card-header text-white bg-danger">
@@ -261,15 +269,9 @@
 
     </div>
   </ng-container>
-  <div class="d-flex justify-content-end">
-    <button class="btn btn-outline-primary mb-4" routerLink="/dashboard">Back to results</button>
 
-  </div>
 </div>
-<footer class="bg-dark text-white py-4 text-center">
-  <p class="mb-0">Created by Nikolas Nelson 2019</p>
 
-</footer>
 
 
 

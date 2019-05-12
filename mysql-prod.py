@@ -1,12 +1,15 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect
 from flaskext.mysql import MySQL
 from flask_cors import CORS
 
+from OpenSSL import SSL
+context = SSL.Context(SSL.SSLv23_METHOD)
+context.use_privatekey_file('/etc/letsencrypt/live/nickwebdev.com/privkey.pem')
+context.use_certificate_file('/etc/letsencrypt/live/nickwebdev.com/fullchain.pem')
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 mysql = MySQL()
-
 # CONECTION TO MYSQL DB
 app.config['MYSQL_DATABASE_HOST'] = '139.162.255.173'
 app.config['MYSQL_DATABASE_USER'] = 'name'  # name and password to DB on request or in project submission
@@ -39,4 +42,5 @@ def getById(URN):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, threaded=True, debug=True,)
+    context = ('/etc/letsencrypt/live/nickwebdev.com/fullchain.pem', '/etc/letsencrypt/live/nickwebdev.com/privkey.pem')
+    app.run(host='0.0.0.0', port=5000, threaded=True, debug=True, ssl_context=context)

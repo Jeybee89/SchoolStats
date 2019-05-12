@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
-import {map} from "rxjs/operators";
-import {School} from "../model/school";
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +17,11 @@ export class SchooldataService {
   }
 
   getSchool() {
-    return this.http.get("http://127.0.0.1:5000/api/schooldata")
+    return this.http.get("https://schooldata.nickwebdev.com:5000/api/schooldata")
   }
 
   getSchoolById(id) {
-    return this.http.get(`http://127.0.0.1:5000/api/schooldata/${id}`)
+    return this.http.get(`https://schooldata.nickwebdev.com:5000/api/schooldata/${id}`)
   }
 
 

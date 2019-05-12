@@ -11,6 +11,7 @@ import { DetailComponent } from './detail/detail.component';
 import {ChartsModule} from "ng2-charts";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { IncomeComponent } from './income/income.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {path: 'expenditure', component: ExpenditureComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
     DetailComponent,
     NotFoundComponent,
     IncomeComponent,
+    FooterComponent,
   ],
 
   exports: [
@@ -38,7 +40,8 @@ const routes: Routes = [
     ExpenditureComponent,
     DetailComponent,
     NotFoundComponent,
-    IncomeComponent
+    IncomeComponent,
+    FooterComponent
   ],
 
   imports: [
